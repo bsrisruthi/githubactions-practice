@@ -25,7 +25,7 @@ jobs:
           tags: bsrisruthi/cwvj-flask-app:v1.0.1
 
       - name: Run Container
-        run: docker run -d -p 5000:5000 --name my-container bsrisruthi/cwj-flask-app:v1.0.1
+        run: docker run -d -p 5000:5000 --name my-container bsrisruthi/cwvj-flask-app:v1.0.1
 
       - name: Smoke Test
         run: |
