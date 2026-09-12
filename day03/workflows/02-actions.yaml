@@ -1,4 +1,4 @@
-name: 02 - CWVJ Flask CI Workflow
+name: 05 - CWVJ Flask CI Workflow
 
 on:
   push:
