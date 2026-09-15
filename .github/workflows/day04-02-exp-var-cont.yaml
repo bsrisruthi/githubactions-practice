@@ -1,0 +1,41 @@
+name: 07 - Expressions Variables Contexts
+on: 
+  push:
+    branches:
+      - main
+      - develop/*
+env:
+  APPLICATION_NAME: payment-service
+  DEVELOPMENT_ENVIRONMENT: production
+  AWS_REGION: ap-south-1
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print Variables Contexts Expressions
+        run: |
+          echo "======Default Variables======"
+          echo "Event Name: $GITHUB_EVENT_NAME"
+          echo "Branch Name: $GITHUB_REF_NAME"
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Runner OS: $RUNNER_OS"
+
+          echo ""
+
+          echo "======Custom Variables"
+          echo "Application Name: $APPLICATION_NAME"
+          echo "Development Environment: $DEVELOPMENT_ENVIRONMENT"
+          echo "Region: $AWS_REGION"
+
+          echo ""
+
+          echo "=======Context Variables======="
+          echo "Repository: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Workflow ${{ github.workflow }}"
+          echo "Runner OS Conext: ${{ runner.os }}"
+
+          echo ""
+
