@@ -39,3 +39,25 @@ jobs:
 
           echo ""
 
+          echo "========== CONTEXT VS VARIABLES =========="
+          echo "Context Ref: ${{ github.ref }}"
+          echo "Variable Ref: $GITHUB_REF"
+
+          echo ""
+
+          echo "========== EXPRESSION EVALUATION =========="
+          echo "Is Main Branch: ${{ github.ref == 'refs/heads/main' }}"
+          echo "Is Dev Branch: ${{ startsWith(github.ref_name, 'develop/') }}"
+
+      - name: Demonstrate Dev Branch Condition
+        if: ${{ startsWith(github.ref_name, 'develop/') }}
+        run: |
+          echo "Dev branch detected successfully"
+
+      - name: Demonstrate Main Branch Condition
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "Main branch deployment logic triggered"
+
+
+
