@@ -1,0 +1,43 @@
+name: 10 - Deploy using Resuable workflow
+on:
+  workflow_call:
+
+    inputs:
+      application-name:
+        required: true
+        type: string
+
+      run-security-scan:
+        required: true
+        type: boolean
+
+      replicas:
+        required: true
+        type: number
+
+jobs:
+  deploy-app-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Deploy Params
+        run: |
+          echo "App: ${{ inputs.application-name }}"
+          echo "Run Security Scan: ${{ inputs.run-security-scan }}"
+          echo "Number of Replicas: {{ inputs.replicas }}"
+        
+      
+      - name: Security Validation
+        if: ${{inputs.run-security-scan==true}}
+        run: |
+          echo "Running Security Scan"
+          echo "No critical vulnerabilities"
+
+      - name: Deploy Applications
+        if: ${{ inputs.replicas==4 }}
+        run: |
+          echo "Deploying the application.."
+          echo "App {{ inputs.application-name }} is deployed"
+        
+      - name: Deploy completed
+        run: |
+          echo "Deployment is completed successfully."
