@@ -21,7 +21,7 @@ on:
 
 env:
   APPLICATION_NAME: cwvj-flask-app
-  DOCKER_USERNAME: cloudwithvarjosh
+  DOCKER_USERNAME: bsrisruthi
   IMAGE_TAG: v1.0.1
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
       - name: Build Docker Image
         uses: docker/build-push-action@v7
         with:
-          context: ./app
+          context: ./day06/workflows/app
           push: false
           tags: ${{ env.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:${{ env.IMAGE_TAG }}
 
@@ -63,7 +63,7 @@ jobs:
         if: ${{ inputs.environment != 'dev' }}
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ./day06/workflows/app
           push: true
           tags: ${{ env.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:${{ env.IMAGE_TAG }}
 
