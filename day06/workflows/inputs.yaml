@@ -1,4 +1,4 @@
-name: 01 - Type 1 Workflow Inputs Demo
+name: 09 - Type 1 Workflow Inputs Demo
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
         type: choice
         default: dev
         options:
-          - dev
+          - dev s
           - qa
           - prod
 
@@ -40,7 +40,7 @@ jobs:
       - name: Build Docker Image
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ./app
           push: false
           tags: ${{ env.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:${{ env.IMAGE_TAG }}
 
