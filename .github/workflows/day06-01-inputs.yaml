@@ -1,4 +1,4 @@
-name: 01 - Type 1 Workflow Inputs Demo
+name: 09 - Type 1 Workflow Inputs Demo
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
         default: dev
         options:
           - dev
-          - qa
+          - qa 
           - prod
 
       perform_smoke_test:
