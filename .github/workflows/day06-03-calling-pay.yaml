@@ -33,6 +33,6 @@ jobs:
     uses: ./.github/workflows/day06-02-reusable-deploy.yaml
 
     with:
-      application_name: payment-service
-      run_security_scan: true
+      application-name: payment-service
+      run-security-scan: true
       replicas: 4
